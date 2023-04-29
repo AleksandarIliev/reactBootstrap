@@ -20,7 +20,7 @@ export default function ControlledCarousel() {
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3><a href='/products'>Big bag station</a></h3>
+                        <h3><a id='products' href='/products'>Big bag station</a></h3>
                         {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -33,7 +33,7 @@ export default function ControlledCarousel() {
                     />
 
                     <Carousel.Caption>
-                        <h3><a href='/products'>Bunker</a></h3>
+                        <h3><a id='products' href='/products'>Bunker</a></h3>
                         {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -46,7 +46,7 @@ export default function ControlledCarousel() {
                     />
 
                     <Carousel.Caption>
-                        <h3><a href='/products'>Conveying belt</a></h3>
+                        <h3><a id='products' href='/products'>Conveying belt</a></h3>
                         {/* <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> */}
                     </Carousel.Caption>
                 </Carousel.Item>
