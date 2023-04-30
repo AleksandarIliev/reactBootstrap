@@ -1,3 +1,7 @@
-#products { 
+.anch { 
     text-decoration: none;
+    color: black;
+}
+.anch:hover {
+    color: white;
 }

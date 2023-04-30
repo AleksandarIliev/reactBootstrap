@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import { Header } from './components/Header/Header';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import TodoList from './components/TodoList/TodoList';
 import ControlledCarousel from './components/RotatePhoto/RotatePhoto';
 
