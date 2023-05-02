@@ -1,3 +1,6 @@
+.carousel>.carouselItem>img{
+    height: 600px
+}
 .anch { 
     text-decoration: none;
     color: black;
