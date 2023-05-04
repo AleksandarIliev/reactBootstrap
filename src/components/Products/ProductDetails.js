@@ -1,32 +1,41 @@
-import { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
+import Product from './Product';
 
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+//1'51''
 
-const baseUrl = 'productData.json';
+export default function ProductDetails ({ data }) {
+    // const firstProduct = datas[0];
 
-export const ProductDetail = () => {
-    const [data, setData] = useState(data);
+    // const [data, setData] = useState([]);
 
-    useEffect(() => {
-        fetch(baseUrl)
-            .then(res => res.json())
-            .then(result => {
-                setDetail(Object.values(result));
-            })
-    }, []);
+    // const getData = () => {
+    //     fetch('./productData.json'
+    //     ,{
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Accept': 'application/json'
+    //         }
+    //     }
+    //     )
+    //         .then(function (res) {
+    //             console.log(res)
+    //             return res.json();
+    //         })
+    //         .then(function (myJson) {
+    //             console.log(myJson);
+    //             setData(myJson)
+    //         });
+    // }
+
+    // useEffect(() => {
+    //     getData()
+    // }, [])
 
     return (
         <div>
-            <Card style={{ width: '20rem' }}>
-                <Card.Img variant="top" src={detail.imageUrl} />
-                <Card.Body>
-                    <Card.Title>{detail.name}</Card.Title>
-                    <Card.Text>{detail.alt}</Card.Text>
-                    <Button variant="primary">Go back</Button>
-                    <Button variant="primary">Ask for info</Button>
-                </Card.Body>
-            </Card>
+            <ul>
+                {data.map(x => <li key={x.id}><Product {...x} /></li>)}
+            </ul>
         </div>
     );
 }
