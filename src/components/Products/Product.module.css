@@ -1,0 +1,8 @@
+.product {
+    list-style-type: none;
+    display: inline-flex;
+}
+
+.liStyle {
+    padding-right: 10px;
+}

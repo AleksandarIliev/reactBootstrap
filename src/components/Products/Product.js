@@ -2,6 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 export default function Product({
+    id,
     name,
     imageUrl,
     description,
@@ -9,11 +10,11 @@ export default function Product({
 }) {
     return (
         <Card style={{ width: '20rem' }}>
-            <Card.Img variant="top" src={imageUrl} />
+            <Card.Img style={{ height:'20rem' }} variant="top" src={imageUrl} />
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Text>{alt}</Card.Text>
-                <Card.Description>{description}</Card.Description>
+                <Card.Text>{description}</Card.Text>
                 <Button variant="primary">Go back</Button>
                 <Button variant="primary">Ask for info</Button>
             </Card.Body>

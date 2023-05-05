@@ -3,10 +3,8 @@ import { Header } from './components/Header/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import TodoList from './components/TodoList/TodoList';
 import ControlledCarousel from './components/RotatePhoto/RotatePhoto';
-import { data } from './components/Products/productData';
+import { data } from './productData';
 import ProductDetails from './components/Products/ProductDetails';
-
-// https://www.pluralsight.com/guides/fetch-data-from-a-json-file-in-a-react-app
 
 // const baseUrl = 'http://localhost:3030/jsonstore/todos';
 
