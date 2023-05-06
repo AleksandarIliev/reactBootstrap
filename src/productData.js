@@ -37,14 +37,14 @@ export const data = [
     {
         "id": "6",
         "name": "Turbine",
-        "description": "This is for a material dosing.",
+        "description": "This is for dosing material and loading into sack.",
         "imageUrl": "Turbine.jpg",
         "alt": "This is a turbine"
     },
     {
         "id": "7",
         "name": "Bunker",
-        "description": "This use for accumulation to a different material, with a different capacity.",
+        "description": "This accumulation to material, with a different capacity.",
         "imageUrl": "Bunker.jpg",
         "alt": "This is a bunker"
     },
@@ -65,7 +65,7 @@ export const data = [
     {
         "id": "10",
         "name": "Big-bag station",
-        "description": "Use for overload and unloading material.",
+        "description": "Use for overload and unloading material and change a big-bag.",
         "imageUrl": "Big-Bag-station.jpg",
         "alt": "This is a big-bag station"
     }

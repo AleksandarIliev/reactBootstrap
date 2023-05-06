@@ -5,7 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ControlledCarousel from './components/RotatePhoto/RotatePhoto';
 import { data } from './productData';
 import ProductDetails from './components/Products/ProductDetails';
-
+import Container from 'react-bootstrap/Container';
+import styles from './App.module.css';
 // const baseUrl = 'http://localhost:3030/jsonstore/todos';
 
 function App() {
@@ -21,9 +22,11 @@ function App() {
 
     return (
         <div className="App">
-            <Header />
-            <ControlledCarousel /> <br />
-            <ProductDetails data={data} />
+            <Container fluid="xxl" className={styles['AppStyle']}>
+                <Header />
+                <ControlledCarousel /> <br />
+                <ProductDetails data={data} />
+            </Container>
         </div>
     );
 }

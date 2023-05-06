@@ -1,5 +1,5 @@
 import Product from './Product';
-import styles from './Product.module.css'
+import styles from './ProductDetails.module.css'
 
 export default function ProductDetails ({ data }) {
     return (
