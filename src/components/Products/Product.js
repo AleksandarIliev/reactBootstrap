@@ -47,7 +47,7 @@ export default function Product({
         //     </Row>
         // </Container>
 
-        <CardGroup className={styles['cardGroup']}>
+        <CardGroup className={styles['cardGroup']} >
             <Card>
                 <Card.Img variant="top" src={imageUrl} className={styles['imageStyle']} />
                 <Card.Body>

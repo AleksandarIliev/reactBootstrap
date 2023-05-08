@@ -1,14 +1,7 @@
 .cardGroup {
-    width: 300px;
-    height:320px;
-    box-sizing: border-box;
-    display: block;
-    float: none;
-    line-height: 24px;
-    position: relative;
-    z-index: auto;
+    margin: 20px;
 }
 .imageStyle {
     width: 300px;
-    height: 160px;
+    height: 200px;
 }
