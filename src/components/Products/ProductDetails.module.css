@@ -7,5 +7,5 @@
 }
 
 .product > li {
-    flex-basis: calc(35% - 40px);
+    flex-basis: calc(35% - 30px);
 }
