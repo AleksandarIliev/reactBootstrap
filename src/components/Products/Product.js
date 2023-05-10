@@ -55,7 +55,7 @@ export default function Product({
                     <Card.Text>{description}</Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                    <Button variant="light">Details</Button>
+                    <Button className={styles['btn']} variant="light">Details</Button>
                 </Card.Footer>
             </Card>
         </CardGroup>

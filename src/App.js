@@ -7,8 +7,9 @@ import ProductDetails from './components/Products/ProductDetails';
 import Container from 'react-bootstrap/Container';
 import styles from './App.module.css';
 import { useEffect, useState } from 'react';
+import Footer from './components/Footer/Footer';
 // const baseUrl = 'http://localhost:3030/jsonstore/todos';
-
+//3'
 function App() {
     // const [todos, setTodos] = useState([]);
 
@@ -35,6 +36,7 @@ function App() {
                 <Header />
                 <ControlledCarousel /> <br />
                 <ProductDetails data={data} />
+                <Footer />
             </Container>
         </div>
     );

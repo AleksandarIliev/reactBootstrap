@@ -1,5 +1,5 @@
 .cardGroup {
-    width: calc((100/3) - 40px);
+    width: calc(33,33% - 40px);
     margin: 15px;
     height: 80%;
 }
@@ -9,4 +9,8 @@
     height: 200px;
     min-width: 100%;
     object-fit: scale-down;
+}
+
+.btn {
+    background-color: rgb(235, 236, 236);
 }

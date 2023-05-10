@@ -1,0 +1,19 @@
+.footer {
+    height: 55px;
+    color: white;
+    display: block;
+    position: relative;
+    top: 15px;
+}
+.footer > p { 
+    padding: 7px;
+    padding-right: 20px;
+    float: right;
+}
+.link {
+    text-decoration: none;
+    color: white;
+}
+.link:hover {
+    color: red;
+}
