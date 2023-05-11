@@ -25,8 +25,8 @@ function CollapsibleExample() {
                         <Nav.Link href="#contact">Contact</Nav.Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#partners">Login</Nav.Link>
-                        <Nav.Link eventKey={2} href="#relations">Register</Nav.Link>
+                        <Nav.Link href="/Login">Login</Nav.Link>
+                        <Nav.Link eventKey={2} href="/Register">Register</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

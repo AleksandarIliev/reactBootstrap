@@ -16,30 +16,30 @@ export default function ControlledCarousel() {
                     <img
                         height={"600px"}
                         className="d-block w-100"
-                        src={require(`./Big-Bag-station.jpg`)}
+                        src={require(`./Line_for_paqueting.jpg`)}
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3><a className={styles.anch} href="/products">Big bag station</a></h3>
+                        <h3><a className={styles.anch} href="/products">Line for paqueting</a></h3>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
                         height={"600px"}
                         className="d-block w-100"
-                        src={require(`./Bunker.jpg`)}
+                        src={require(`./Section_for_spedition.jpg`)}
                         alt="Second slide"
                     />
 
                     <Carousel.Caption>
-                        <h3><a className={styles.anch} href='/products'>Bunker</a></h3>
+                        <h3><a className={styles.anch} href='/products'>Section for spedition</a></h3>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
                         height={"600px"}
                         className="d-block w-100"
-                        src={require(`./Conveying-belt.jpg`)}
+                        src={require(`./Conveying_belt.jpg`)}
                         alt="Third slide"
                     />
 

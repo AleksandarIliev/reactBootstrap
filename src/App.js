@@ -9,7 +9,7 @@ import styles from './App.module.css';
 import { useEffect, useState } from 'react';
 import Footer from './components/Footer/Footer';
 // const baseUrl = 'http://localhost:3030/jsonstore/todos';
-//3'
+
 function App() {
     // const [todos, setTodos] = useState([]);
 
