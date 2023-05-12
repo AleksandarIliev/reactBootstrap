@@ -1,35 +1,35 @@
-import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { LinkContainer } from 'react-router-bootstrap';
 
 function CollapsibleExample() {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Container>
-                <Navbar.Brand href="#home">Aleks - M</Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#about">About</Nav.Link>
-                        <NavDropdown title="Products" id="collasible-nav-dropdown">
-                            <NavDropdown.Item href="#product/3.1">Vibro machine</NavDropdown.Item>
-                            <NavDropdown.Item href="#product/3.2">Screw conveyor</NavDropdown.Item>
-                            <NavDropdown.Item href="#product/3.3">Shredder machine</NavDropdown.Item>
-                            <NavDropdown.Item href="#product/3.4">Conveying belt</NavDropdown.Item>
-                            <NavDropdown.Item href="#product/3.5">Pneumatic machine</NavDropdown.Item>
-                            <NavDropdown.Item href="#product/3.6">Different elevators</NavDropdown.Item>
-                            <NavDropdown.Item href="#product/3.7">Hydraulic machine</NavDropdown.Item>
-                        </NavDropdown>
-                        <Nav.Link href="#contact">Contact</Nav.Link>
-                    </Nav>
-                    <Nav>
-                        <Nav.Link href="/Login">Login</Nav.Link>
-                        <Nav.Link eventKey={2} href="/Register">Register</Nav.Link>
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
+            <LinkContainer to="/">
+                <Navbar.Brand>Aleks - M</Navbar.Brand>
+            </LinkContainer>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="me-auto">
+                    <LinkContainer to="/"><Nav.Link>Home</Nav.Link></LinkContainer>
+                    <LinkContainer to="/about"><Nav.Link>About</Nav.Link></LinkContainer>
+                    <NavDropdown title="Products" id="collasible-nav-dropdown">
+                        <LinkContainer to="/product"><NavDropdown.Item>Vibro machine</NavDropdown.Item></LinkContainer>
+                        <LinkContainer to="/product"><NavDropdown.Item>Screw conveyor</NavDropdown.Item></LinkContainer>
+                        <LinkContainer to="/product"><NavDropdown.Item>Shredder machine</NavDropdown.Item></LinkContainer>
+                        <LinkContainer to="/product"><NavDropdown.Item>Conveying belt</NavDropdown.Item></LinkContainer>
+                        <LinkContainer to="/product"><NavDropdown.Item>Pneumatic machine</NavDropdown.Item></LinkContainer>
+                        <LinkContainer to="/product"><NavDropdown.Item>Different elevators</NavDropdown.Item></LinkContainer>
+                        <LinkContainer to="/product"><NavDropdown.Item>Hydraulic machine</NavDropdown.Item></LinkContainer>
+                    </NavDropdown>
+                    <LinkContainer to="/contact"><Nav.Link>Contact</Nav.Link></LinkContainer>
+                </Nav>
+                <Nav>
+                    <LinkContainer to="/login"><Nav.Link>Login</Nav.Link></LinkContainer>
+                    <LinkContainer to="/register"><Nav.Link eventKey={2}>Register</Nav.Link></LinkContainer>
+                </Nav>
+            </Navbar.Collapse>
         </Navbar>
     );
 }

@@ -32,7 +32,7 @@ export const Register = () => {
         setRole(e.target.value);
     }
 
-    const onSubmitHandler = () => {
+    const onSubmitHandler = (e) => {
         e.preventDefault();
 
         console.log(email);
