@@ -2,12 +2,13 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { LinkContainer } from 'react-router-bootstrap';
+import styles from './Navbar.module.css';
 
 function CollapsibleExample() {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <LinkContainer to="/">
-                <Navbar.Brand>Aleks - M</Navbar.Brand>
+                <Navbar.Brand className={styles['brandName']}>Aleks - M</Navbar.Brand>
             </LinkContainer>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">

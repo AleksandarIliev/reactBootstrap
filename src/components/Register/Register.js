@@ -55,19 +55,19 @@ export const Register = () => {
 
             <div>
                 <label htmlFor="asia">Asia</label>
-                <input type="checkbox" name="continent" id="Asia" value="Asia" onChange={onContinentChange} checked={continent.includes('Asia') || false} />
+                <input type="checkbox" name="continent" id="Asia" value="Asia" onChange={onContinentChange} checked={continent['Asia'] || false} />
                 <label htmlFor="africa">Africa</label>
-                <input type="checkbox" name="continent" id="Africa" value="Africa" onChange={onContinentChange} checked={continent.includes('Africa') || false} />
+                <input type="checkbox" name="continent" id="Africa" value="Africa" onChange={onContinentChange} checked={continent['Africa'] || false} />
                 <label htmlFor="north America">North America</label>
-                <input type="checkbox" name="continent" id="North America" value="North America" onChange={onContinentChange} checked={continent.includes('North America') || false} />
+                <input type="checkbox" name="continent" id="North America" value="North America" onChange={onContinentChange} checked={continent['North America'] || false} />
                 <label htmlFor="south America">South America</label>
-                <input type="checkbox" name="continent" id="South America" value="South America" onChange={onContinentChange} checked={continent.includes('South America') || false} />
+                <input type="checkbox" name="continent" id="South America" value="South America" onChange={onContinentChange} checked={continent['South America'] || false} />
                 <label htmlFor="antarctica">Antarctica</label>
-                <input type="checkbox" name="continent" id="Antarctica" value="Antarctica" onChange={onContinentChange} checked={continent.includes('Antarctica') || false} />
+                <input type="checkbox" name="continent" id="Antarctica" value="Antarctica" onChange={onContinentChange} checked={continent['Antarctica'] || false} />
                 <label htmlFor="europe">Europe</label>
-                <input type="checkbox" name="continent" id="Europe" value="Europe" onChange={onContinentChange} checked={continent.includes('Europe') || false} />
+                <input type="checkbox" name="continent" id="Europe" value="Europe" onChange={onContinentChange} checked={continent['Europe'] || false} />
                 <label htmlFor="australia">Australia</label>
-                <input type="checkbox" name="continent" id="Australia" value="Australia" onChange={onContinentChange} checked={continent.includes('Australia') || false} />
+                <input type="checkbox" name="continent" id="Australia" value="Australia" onChange={onContinentChange} checked={continent['Australia'] || false} />
             </div>
 
             <div>

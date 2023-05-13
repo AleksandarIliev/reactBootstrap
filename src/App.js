@@ -41,19 +41,22 @@ function App() {
         <div className="App">
             <Container fluid="xxl" className={styles['AppStyle']}>
                 <Header />
-                <ControlledCarousel /> <br />
-                <ProductDetails data={data} />
+                <Routes>
+                    <Route path="/" element={
+                        <>
+                            <ControlledCarousel /> <br />
+                            <ProductDetails data={data} />
+                        </>
+                    }></Route>
+                    <Route path="/about" element={<About />}></Route>
+                    <Route path="/product" element={<Product />}></Route>
+                    <Route path="/contact" element={<Contact />}></Route>
+                    <Route path="/login" element={<Login />}></Route>
+                    <Route path="/register" element={<Register />}></Route>
+                </Routes>
+
                 <Footer />
             </Container>
-
-            <Routes>
-                <Route path="/"></Route>
-                <Route path="/about" element={<About />}></Route>
-                <Route path="/product" element={<Product />}></Route>
-                <Route path="/contact" element={<Contact />}></Route>
-                <Route path="/login" element={<Login />}></Route>
-                <Route path="/register" element={<Register />}></Route>
-            </Routes>
         </div>
     );
 }
