@@ -1,12 +1,14 @@
 .footer {
+    margin: 0px;
     height: 55px;
     color: white;
     display: block;
     position: relative;
     top: 15px;
+    margin-top: auto;
 }
 .footer > p { 
-    padding: 7px;
+    padding-top: 7px;
     padding-right: 20px;
     float: right;
 }
@@ -15,5 +17,5 @@
     color: white;
 }
 .link:hover {
-    color: red;
+    color: rgb(115, 115, 118);
 }

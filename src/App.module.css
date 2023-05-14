@@ -1,4 +1,18 @@
 .AppStyle {
     width: 100%;
     padding: 0px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.title {
+    margin-left: 50px;
+    margin-top: 20px;
+}
+.title > a {
+    text-decoration: none;
+    color:black;
+}
+.title > a:hover {
+    color: rgb(115, 115, 118);
 }

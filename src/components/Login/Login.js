@@ -1,6 +1,7 @@
-import { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { NavLink } from 'react-router-dom';
+import { useState } from "react";
 import styles from './Login.module.css';
 
 export const Login = () => {
@@ -42,10 +43,8 @@ export const Login = () => {
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" name="isChecked" id="I'm not a bot" value="I'm not a bot" onChange={onChecked} checked={isChecked['I\'m not a bot'] || false} label="I'm not a bot" />
             </Form.Group>
-            <Button variant="primary" type="submit">
-                Submit
-            </Button><br />
-            <Form.Text id="passwordHelpBlock" muted>If you don't have a account click here.</Form.Text>
+            <Button variant="primary" type="submit">Submit</Button><br />
+            <Form.Text id="passwordHelpBlock" muted>If you don't have a account <NavLink to='/register'>click here.</NavLink></Form.Text>
         </Form>
 
         // <form onSubmit={onSubmitHandler}>

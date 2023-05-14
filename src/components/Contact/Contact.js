@@ -42,22 +42,19 @@ export const Contact = () => {
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" value={email} onChange={onEmailChange} placeholder="Enter email" />
             </Form.Group>
-
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Phone number</Form.Label>
                 <Form.Control type="tel" value={phoneNumber} onChange={onPhoneChange} placeholder="Your GSM number" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Write here for what this is about</Form.Label>
-                <Form.Control as="textarea" value={textField} onChange={onTextChange} rows={5} />
+                <Form.Control as="textarea" value={textField} onChange={onTextChange} placeholder="Write here" rows={5} />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" name="isChecked" id="I'm not a bot" value="I'm not a bot" onChange={onChecked} checked={isChecked['I\'m not a bot'] || false} label="I'm not a bot" />
                 <Form.Check type="checkbox" name="isChecked" id="My data is currect" value="My data is currect" onChange={onChecked} checked={isChecked['My data is currect'] || false} label="My phone and email are correct" />
             </Form.Group>
-            <Button variant="primary" type="submit">
-                Submit
-            </Button>
+            <Button variant="primary" type="submit">Submit</Button>
         </Form>
     );
 }

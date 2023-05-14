@@ -1,10 +1,10 @@
-.logStyle { 
+.regStyle { 
     margin: 15px;
 }
-.logStyle a {
+.regStyle a {
     text-decoration: none;
     color: rgb(115, 115, 118);
 }
-.logStyle a:hover {
+.regStyle a:hover {
     color: black;
 }

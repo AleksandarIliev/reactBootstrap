@@ -13,8 +13,10 @@ import { Register } from './components/Register/Register';
 import { About } from './components/About/About';
 import { Header } from './components/Header/Header';
 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { ByType } from './components/ByType/ByType';
+
 // const baseUrl = 'http://localhost:3030/jsonstore/todos';
 
 function App() {
@@ -28,6 +30,9 @@ function App() {
     //     })
     // }, []);
     const [data, setData] = useState([]);
+    const location = useLocation();
+    const { hash, pathname, search } = location;
+    // console.log(pathname);
 
     useEffect(() => {
         fetch(`http://localhost:3000/productData.json`)
@@ -45,16 +50,21 @@ function App() {
                     <Route path="/" element={
                         <>
                             <ControlledCarousel /> <br />
-                            <ProductDetails data={data} />
+                            <>
+                                <h5 className={styles['title']}>Here you can see part of the products who we are developing:</h5>
+                                <ProductDetails data={data.slice(0, 3)} />
+                                <h5 className={styles['title']}><NavLink to='/productDetails'>To see the full list click here...</NavLink></h5>
+                            </>
                         </>
                     }></Route>
                     <Route path="/about" element={<About />}></Route>
                     <Route path="/product" element={<Product />}></Route>
+                    <Route path="/productDetails" element={<ProductDetails data={data} pathname={pathname} />}></Route>
                     <Route path="/contact" element={<Contact />}></Route>
                     <Route path="/login" element={<Login />}></Route>
                     <Route path="/register" element={<Register />}></Route>
+                    <Route path="/product" element={<ByType data={data} />}></Route>
                 </Routes>
-
                 <Footer />
             </Container>
         </div>
