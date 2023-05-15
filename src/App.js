@@ -15,7 +15,6 @@ import { Header } from './components/Header/Header';
 
 import { Routes, Route, useLocation, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { ByType } from './components/ByType/ByType';
 
 // const baseUrl = 'http://localhost:3030/jsonstore/todos';
 
@@ -59,11 +58,22 @@ function App() {
                     }></Route>
                     <Route path="/about" element={<About />}></Route>
                     <Route path="/product" element={<Product />}></Route>
-                    <Route path="/productDetails" element={<ProductDetails data={data} pathname={pathname} />}></Route>
                     <Route path="/contact" element={<Contact />}></Route>
                     <Route path="/login" element={<Login />}></Route>
                     <Route path="/register" element={<Register />}></Route>
-                    <Route path="/product" element={<ByType data={data} />}></Route>
+
+                    <Route path="/productDetails" element={<ProductDetails data={data} pathname={pathname} />}></Route>
+                    <Route path="/vibroMachines" element={<ProductDetails data={data.filter(data => data.type.includes('vibroMachines'))} />}></Route>
+                    <Route path="/measuringEquipments" element={<ProductDetails data={data.filter(data => data.type.includes('measuringEquipments'))} />}></Route>
+                    <Route path="/transportMachines" element={<ProductDetails data={data.filter(data => data.type.includes('transportMachines'))} />}></Route>
+                    <Route path="/bunkers" element={<ProductDetails data={data.filter(data => data.type.includes('bunkers'))} />}></Route>
+                    <Route path="/shredderMachines" element={<ProductDetails data={data.filter(data => data.type.includes('shredderMachines'))} />}></Route>
+                    <Route path="/kitchenEquipments" element={<ProductDetails data={data.filter(data => data.type.includes('kitchenEquipments'))} />}></Route>
+                    <Route path="/pneumaticMachines" element={<ProductDetails data={data.filter(data => data.type.includes('pneumaticMachines'))} />}></Route>
+                    <Route path="/sievedMachines" element={<ProductDetails data={data.filter(data => data.type.includes('sievedMachines'))} />}></Route>
+                    <Route path="/hydraulicMachines" element={<ProductDetails data={data.filter(data => data.type.includes('hydraulicMachines'))} />}></Route>
+                    <Route path="/filteringMachines" element={<ProductDetails data={data.filter(data => data.type.includes('filteringMachines'))} />}></Route>
+                    <Route path="/dosingMachines" element={<ProductDetails data={data.filter(data => data.type.includes('dosingMachines'))} />}></Route>
                 </Routes>
                 <Footer />
             </Container>

@@ -17,17 +17,17 @@ function CollapsibleExample() {
                     <LinkContainer to="/about"><Nav.Link>About</Nav.Link></LinkContainer>
                     <NavDropdown title="Products" id="collasible-nav-dropdown">
                         <LinkContainer to="/productDetails"><NavDropdown.Item>All products</NavDropdown.Item></LinkContainer>
-                        <LinkContainer to="/product"><NavDropdown.Item>Vibro machines</NavDropdown.Item></LinkContainer>
-                        <LinkContainer to="/product"><NavDropdown.Item>Measuring equipments</NavDropdown.Item></LinkContainer>
-                        <LinkContainer to="/product"><NavDropdown.Item>Transport machines</NavDropdown.Item></LinkContainer>
-                        <LinkContainer to="/product"><NavDropdown.Item>Bunkers</NavDropdown.Item></LinkContainer>
-                        <LinkContainer to="/product"><NavDropdown.Item>Shredder machines</NavDropdown.Item></LinkContainer>
-                        <LinkContainer to="/product"><NavDropdown.Item>Kitchen equipments</NavDropdown.Item></LinkContainer>
-                        <LinkContainer to="/product"><NavDropdown.Item>Pneumatic machines</NavDropdown.Item></LinkContainer>
-                        <LinkContainer to="/product"><NavDropdown.Item>Sieved machines</NavDropdown.Item></LinkContainer>
-                        <LinkContainer to="/product"><NavDropdown.Item>Hydraulic machines</NavDropdown.Item></LinkContainer>
-                        <LinkContainer to="/product"><NavDropdown.Item>Filtering machines</NavDropdown.Item></LinkContainer>
-                        <LinkContainer to="/product"><NavDropdown.Item>Dosing machines</NavDropdown.Item></LinkContainer>
+                        <LinkContainer to="/vibroMachines"><NavDropdown.Item>Vibro machines</NavDropdown.Item></LinkContainer>
+                        <LinkContainer to="/measuringEquipments"><NavDropdown.Item>Measuring equipments</NavDropdown.Item></LinkContainer>
+                        <LinkContainer to="/transportMachines"><NavDropdown.Item>Transport machines</NavDropdown.Item></LinkContainer>
+                        <LinkContainer to="/bunkers"><NavDropdown.Item>Bunkers</NavDropdown.Item></LinkContainer>
+                        <LinkContainer to="/shredderMachines"><NavDropdown.Item>Shredder machines</NavDropdown.Item></LinkContainer>
+                        <LinkContainer to="/kitchenEquipments"><NavDropdown.Item>Kitchen equipments</NavDropdown.Item></LinkContainer>
+                        <LinkContainer to="/pneumaticMachines"><NavDropdown.Item>Pneumatic machines</NavDropdown.Item></LinkContainer>
+                        <LinkContainer to="/sievedMachines"><NavDropdown.Item>Sieved machines</NavDropdown.Item></LinkContainer>
+                        <LinkContainer to="/hydraulicMachines"><NavDropdown.Item>Hydraulic machines</NavDropdown.Item></LinkContainer>
+                        <LinkContainer to="/filteringMachines"><NavDropdown.Item>Filtering machines</NavDropdown.Item></LinkContainer>
+                        <LinkContainer to="/dosingMachines"><NavDropdown.Item>Dosing machines</NavDropdown.Item></LinkContainer>
                     </NavDropdown>
                     <LinkContainer to="/contact"><Nav.Link>Contact</Nav.Link></LinkContainer>
                 </Nav>

@@ -10,7 +10,7 @@ export const Register = () => {
     const [rePass, setRepass] = useState('');
     const [gender, setGender] = useState('male');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [continent, setContinent] = useState({});
+    // const [continent, setContinent] = useState({});
     const [role, setRole] = useState('');
     const [isChecked, setChecked] = useState({});
 
@@ -34,9 +34,9 @@ export const Register = () => {
         setPhoneNumber(e.target.value);
     }
 
-    const onContinentChange = (e) => {
-        setContinent(state => ({ ...state, [e.target.value]: e.target.checked }));
-    }
+    // const onContinentChange = (e) => {
+    //     setContinent(state => ({ ...state, [e.target.value]: e.target.checked }));
+    // }
 
     const onRoleChange = (e) => {
         setRole(e.target.value);
@@ -55,7 +55,7 @@ export const Register = () => {
         console.log(gender);
         console.log(phoneNumber);
         console.log(isChecked);
-        console.log(continent);
+        // console.log(continent);
         console.log(role);
     }
 
