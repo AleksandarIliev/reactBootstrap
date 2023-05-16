@@ -1,0 +1,12 @@
+.errorStl {
+    margin: 15px;
+}
+.errorStl Button {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 7px;
+    background-color: rgb(235, 236, 236);
+}
+.errorStl Button:hover {
+    background-color: rgb(115, 115, 118);;
+}

@@ -1,0 +1,14 @@
+.title {
+    margin-left: 50px;
+    margin-top: 20px;
+}
+.product {
+    list-style-type: none;
+    min-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.product > li {
+    flex-basis: calc(35% - 30px);
+}

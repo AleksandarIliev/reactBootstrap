@@ -16,7 +16,7 @@ function CollapsibleExample() {
                     <LinkContainer to="/"><Nav.Link>Home</Nav.Link></LinkContainer>
                     <LinkContainer to="/about"><Nav.Link>About</Nav.Link></LinkContainer>
                     <NavDropdown title="Products" id="collasible-nav-dropdown">
-                        <LinkContainer to="/productDetails"><NavDropdown.Item>All products</NavDropdown.Item></LinkContainer>
+                        <LinkContainer to="/allProducts"><NavDropdown.Item>All products</NavDropdown.Item></LinkContainer>
                         <LinkContainer to="/vibroMachines"><NavDropdown.Item>Vibro machines</NavDropdown.Item></LinkContainer>
                         <LinkContainer to="/measuringEquipments"><NavDropdown.Item>Measuring equipments</NavDropdown.Item></LinkContainer>
                         <LinkContainer to="/transportMachines"><NavDropdown.Item>Transport machines</NavDropdown.Item></LinkContainer>

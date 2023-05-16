@@ -18,7 +18,6 @@ export default function Product({
     description,
     alt,
 }) {
-    console.log(type);
     return (
         // <Card style={{ width: '20rem' }}>
         //     <Card.Img style={{ height:'20rem' }} variant="top" src={imageUrl} />
