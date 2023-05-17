@@ -16,6 +16,7 @@ import { Error } from './components/Error/Error';
 
 import { Routes, Route, useLocation, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { ProductDetails } from './components/Products/ProductDetails';
 
 // const baseUrl = 'http://localhost:3030/jsonstore/todos';
 
@@ -32,7 +33,6 @@ function App() {
     const [data, setData] = useState([]);
     const location = useLocation();
     const { hash, pathname, search } = location;
-    // console.log(pathname);
 
     useEffect(() => {
         fetch(`http://localhost:3000/productData.json`)
@@ -42,6 +42,7 @@ function App() {
             })
     }, [])
 
+    console.log(pathname);
     return (
         <div className="App">
             <Container fluid="xxl" className={styles['AppStyle']}>
@@ -58,11 +59,10 @@ function App() {
                         </>
                     }></Route>
                     <Route path="/about" element={<About />}></Route>
-                    <Route path="/product" element={<Product />}></Route>
+                    <Route path="/product" element={<Product pathname={pathname}/>}></Route>
                     <Route path="/contact" element={<Contact />}></Route>
                     <Route path="/login" element={<Login />}></Route>
                     <Route path="/register" element={<Register />}></Route>
-                    <Route path="*" element={<Error />}></Route>
 
                     <Route path="/allProducts" element={<AllProducts data={data} pathname={pathname} />}></Route>
                     <Route path="/vibroMachines" element={<AllProducts data={data.filter(data => data.type.includes('vibroMachines'))} />}></Route>
@@ -76,8 +76,11 @@ function App() {
                     <Route path="/hydraulicMachines" element={<AllProducts data={data.filter(data => data.type.includes('hydraulicMachines'))} />}></Route>
                     <Route path="/filteringMachines" element={<AllProducts data={data.filter(data => data.type.includes('filteringMachines'))} />}></Route>
                     <Route path="/dosingMachines" element={<AllProducts data={data.filter(data => data.type.includes('dosingMachines'))} />}></Route>
+                    
+                    <Route path={`${pathname}/${data.id}`} element={<ProductDetails pathname={pathname} data={data} />}></Route>
 
-                    <Route path="/*/*" element={<Error />}></Route>
+                    <Route path="/*/*/*" element={<Error />}></Route>
+                    <Route path="*" element={<Error />}></Route>
                 </Routes>
                 <Footer />
             </Container>

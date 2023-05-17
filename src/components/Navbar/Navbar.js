@@ -4,7 +4,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { LinkContainer } from 'react-router-bootstrap';
 import styles from './Navbar.module.css';
 
-function CollapsibleExample() {
+function CollapsibleExample({ data, pathname }) {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <LinkContainer to="/">

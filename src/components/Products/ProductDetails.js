@@ -1,20 +1,35 @@
-import Product from './Product';
-import styles from './ProductDetails.module.css';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+const baseUrl = `http://localhost:3000/productData.json`;
 
-export default function ProductDetails({ data, pathname }) {
+export const ProductDetails = ( { 
+    id,
+    name,
+    type,
+    imageUrl,
+    description,
+    alt, 
+    pathname 
+}) => {
+    const detailsId  = useParams();
+    const [details, setDetails] = useState({});
+
+    useEffect(() => {
+        fetch(`${baseUrl}/:${detailsId.id}`)
+        .then(res => res.json())
+        .then(data => {
+            setDetails(data.database);
+        })
+
+    }, [detailsId.id])
+
     return (
         <div>
-            {pathname === "/productDetails" ? (
-                <>
-                <h5 className={styles['title']}>Here you can see the full list of products developed by us:</h5>
-                <ul className={styles['product']}> {data.map(x => <li className={styles.liStyle} key={x.id}><Product {...x} /></li>)}</ul>
-                <h5 className={styles['title']}>... and we won't stop there.</h5>
-                </>
-            ) : (
-                <ul className={styles['product']}>
-                    {data.map(x => <li className={styles.liStyle} key={x.id}><Product {...x} /></li>)}
-                </ul>
-            )}
+            {details.id}
+            {details.name}
+            {details.description}
+            {details.alt}
+            {details.type}
         </div>
     );
 }
