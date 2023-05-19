@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './App.module.css';
 // import TodoList from './components/TodoList/TodoList';
-// import { data } from './productData';
 import ControlledCarousel from './components/RotatePhoto/RotatePhoto';
 import AllProducts from './components/Products/AllProducts';
 import Container from 'react-bootstrap/Container';
@@ -16,7 +15,8 @@ import { Error } from './components/Error/Error';
 
 import { Routes, Route, useLocation, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { ProductDetails } from './components/Products/ProductDetails';
+// import { ProductDetails } from './components/Products/ProductDetails';
+import { Detail } from './components/Products/Detail';
 
 // const baseUrl = 'http://localhost:3030/jsonstore/todos';
 
@@ -32,7 +32,7 @@ function App() {
     // }, []);
     const [data, setData] = useState([]);
     const location = useLocation();
-    const { hash, pathname, search } = location;
+    const { pathname } = location;
 
     useEffect(() => {
         fetch(`http://localhost:3000/productData.json`)
@@ -43,6 +43,7 @@ function App() {
     }, [])
 
     console.log(pathname);
+    
     return (
         <div className="App">
             <Container fluid="xxl" className={styles['AppStyle']}>
@@ -77,10 +78,11 @@ function App() {
                     <Route path="/filteringMachines" element={<AllProducts data={data.filter(data => data.type.includes('filteringMachines'))} />}></Route>
                     <Route path="/dosingMachines" element={<AllProducts data={data.filter(data => data.type.includes('dosingMachines'))} />}></Route>
                     
-                    <Route path={`${pathname}/${data.id}`} element={<ProductDetails pathname={pathname} data={data} />}></Route>
+                    <Route path={`${pathname}/:${data.id}`} element={<Detail />}></Route>
 
+                    <Route path="/*" element={<Error />}></Route>
+                    <Route path="/*/*" element={<Error />}></Route>
                     <Route path="/*/*/*" element={<Error />}></Route>
-                    <Route path="*" element={<Error />}></Route>
                 </Routes>
                 <Footer />
             </Container>

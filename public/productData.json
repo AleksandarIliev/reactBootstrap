@@ -215,6 +215,30 @@
             "description": "It serves to collect the unnecessary dust that is on the sacks.",
             "imageUrl": "Dust_collector.jpg",
             "alt": "It serves to collect the unnecessary dust that is on the sacks"
+        },
+        {
+            "id": "28",
+            "name": "Bunker-trapezoidal-big",
+            "type": "bunkers",
+            "description": "This bunker is with trapezoidal form and use for accumulate material.",
+            "imageUrl": "Bunker_trapezoidal_big.jpg",
+            "alt": "This bunker is with trapezoidal form and use for accumulate material."
+        },
+        {
+            "id": "29",
+            "name": "Screw-collective",
+            "type": "transportMachines",
+            "description": "Use for collect a different material in one place and transport to other.",
+            "imageUrl": "Screw_collective.jpg",
+            "alt": "Use for collect a different material in one place and transport to other."
+        },
+        {
+            "id": "30",
+            "name": "Conveying-belt-with-oar",
+            "type": "transportMachines",
+            "description": "It serves to transport the material at different heights.",
+            "imageUrl": "Conveying_belt_with_oar.jpg",
+            "alt": "It serves to transport the material at different heights."
         }
     ]
 }

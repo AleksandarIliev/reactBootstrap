@@ -9,8 +9,7 @@ export default function Product({
     id,
     name,
     imageUrl,
-    description,
-    pathname
+    description
 }) {
     const navigate = useNavigate();
 
