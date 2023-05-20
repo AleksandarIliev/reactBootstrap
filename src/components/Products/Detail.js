@@ -5,26 +5,36 @@ import { useParams } from "react-router-dom";
 // import styles from './Detail.module.css';
 
 import { useEffect, useState } from "react";
-const baseUrl = `http://localhost:3000/productData.json`;
+// const baseUrl = `http://localhost:3000/productData.json`;
 
-export const Detail = () => {
-    const { id } = useParams();
+export const Detail = ({ 
+    id,
+    name, 
+    type,
+    description,
+    imageUrl,
+    alt,
+}) => {
+    const params = useParams();
     const [detail, setDetail] = useState({});
+    console.log(params.id);
 
     useEffect(() => {
-        fetch(`${baseUrl}/${id}`)
-        .then(res => res.json())
-        .then(data => {
-            setDetail(data.database)
-        })
-    }, [id])
+        fetch(`http://localhost:3000/productData.json`)
+            .then(res => res.json())
+            .then(data => {
+                setDetail(data.database);
+            })
+    }, [params.id])
 
     return (
         <>
-        <p>{detail.name}</p>
-        <p>{detail.type}</p>
-        <p>{detail.alt}</p>
-        <p>{detail.description}</p>
+            <p>{detail.id}</p>
+            <p>{name}</p>
+            <p>{type}</p>
+            <p>{description}</p>
+            <p>{imageUrl}</p>
+            <p>{alt}</p>
         </>
 
         // <CardGroup className={styles['cardGroup']} >

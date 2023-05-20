@@ -47,6 +47,28 @@ export default function ControlledCarousel() {
                         <h3><a className={styles.anch} href='/products'>Conveying belt</a></h3>
                     </Carousel.Caption>
                 </Carousel.Item>
+                <Carousel.Item>
+                    <img
+                        height={"600px"}
+                        className="d-block w-100"
+                        src={require(`./Line_for_recycling_of_nylon.jpg`)}
+                        alt="Fourth slide"
+                    />
+                    <Carousel.Caption>
+                        <h3><a className={styles.anch} href="/products">Line for nylon recycling</a></h3>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img
+                        height={"600px"}
+                        className="d-block w-100"
+                        src={require(`./Line_for_transport_and_filtering.jpg`)}
+                        alt="Fifth slide"
+                    />
+                    <Carousel.Caption>
+                        <h3><a className={styles.anch} href="/products">Line for transport and filtering</a></h3>
+                    </Carousel.Caption>
+                </Carousel.Item>
             </Carousel>
         </div>
     );

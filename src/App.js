@@ -43,7 +43,7 @@ function App() {
     }, [])
 
     console.log(pathname);
-    
+
     return (
         <div className="App">
             <Container fluid="xxl" className={styles['AppStyle']}>
@@ -60,7 +60,7 @@ function App() {
                         </>
                     }></Route>
                     <Route path="/about" element={<About />}></Route>
-                    <Route path="/product" element={<Product pathname={pathname}/>}></Route>
+                    <Route path="/product" element={<Product pathname={pathname} />}></Route>
                     <Route path="/contact" element={<Contact />}></Route>
                     <Route path="/login" element={<Login />}></Route>
                     <Route path="/register" element={<Register />}></Route>
@@ -77,9 +77,9 @@ function App() {
                     <Route path="/hydraulicMachines" element={<AllProducts data={data.filter(data => data.type.includes('hydraulicMachines'))} />}></Route>
                     <Route path="/filteringMachines" element={<AllProducts data={data.filter(data => data.type.includes('filteringMachines'))} />}></Route>
                     <Route path="/dosingMachines" element={<AllProducts data={data.filter(data => data.type.includes('dosingMachines'))} />}></Route>
-                    
-                    <Route path={`${pathname}/:${data.id}`} element={<Detail />}></Route>
 
+                    <Route path={`*/:${data.id}`} element={<Detail data={data.filter(data => data.id)} />}></Route>
+                    
                     <Route path="/*" element={<Error />}></Route>
                     <Route path="/*/*" element={<Error />}></Route>
                     <Route path="/*/*/*" element={<Error />}></Route>
