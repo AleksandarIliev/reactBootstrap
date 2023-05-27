@@ -1,7 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import CardGroup from 'react-bootstrap/CardGroup';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import styles from './Product.module.css';
 
@@ -23,6 +23,7 @@ export default function Product({
                 </Card.Body>
                 <Card.Footer>
                     <Button className={styles['btn']} onClick={() => navigate(`${id}`)} variant="light">Details</Button>
+                    {/* <Link to={"/contact"}>Contact us</Link> */}
                 </Card.Footer>
             </Card>
         </CardGroup>

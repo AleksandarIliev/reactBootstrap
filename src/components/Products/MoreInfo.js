@@ -1,21 +1,14 @@
+export default function MoreInfo({ filtred }) {
+    console.log(filtred);
 
-
-export default function MoreInfo ({
-    id,
-    name,
-    type,
-    description,
-    imageUrl,
-    alt
-}) {
     return (
         <>
-            <p>{id}</p>
-            <p>{name}</p>
-            <p>{type}</p>
-            <p>{description}</p>
-            <p>{imageUrl}</p>
-            <p>{alt}</p>
+            <p>{filtred.id}</p>
+            <p>{filtred.name}</p>
+            <p>{filtred.type}</p>
+            <p>{filtred.description}</p>
+            <p>{filtred.imageUrl}</p>
+            <p>{filtred.alt}</p>
         </>
     );
 }
