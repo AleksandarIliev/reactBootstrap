@@ -79,7 +79,7 @@ function App() {
 
                     <Route path={`*/:${data.id}`} element={<Detail data={data.filter(data => data.id)} />}></Route>
                     
-                    {/* <Route path="/*" element={<Error />}></Route> */}
+                    <Route path="/*" element={<Error />}></Route>
                     <Route path="/*/*" element={<Error />}></Route>
                     <Route path="/*/*/*" element={<Error />}></Route>
                 </Routes>

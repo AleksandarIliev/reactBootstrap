@@ -9,29 +9,28 @@ export const Detail = () => {
     const [data, setData] = useState([]);
     const location = useLocation();
     const { pathname } = location;
+    let num = params[data.id];
+
     console.log(pathname);
-    console.log(params[data.id]);
+    console.log(num);
 
     useEffect(() => {
         fetch(baseUrl)
             .then(res => res.json())
             .then(data => {
-                setData(data.database);
+                setData(data.database.filter(x => {
+                    return x.id === num;
+                }));
             })
-    }, [params[data.id]])
+    }, [num])
 
-    const filtred = data.filter(x => {
-        return x.id === params[data.id];
-    })
-    
+    console.log(data);
+
+    // const filtred = data.filter(x => {
+    //     return x.id === params[data.id];
+    // })
+
     return (
-        <ul>
-            {/* {data.map(x => <li key={x.id}><MoreInfo data={(data) => {data.filter(data => data[params[data.id]])}} /></li>)} */}
-            {/* <li>
-                <MoreInfo data={() => {data.filter(data => data[params[data.id]])}} />
-            </li> */}
-            {/* {data.filter(data => data[params[data.id]])} */}
-            <li><MoreInfo filtred={filtred} /></li>
-        </ul>
+        <MoreInfo data={data} />
     );
 }

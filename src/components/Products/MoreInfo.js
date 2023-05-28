@@ -1,14 +1,29 @@
-export default function MoreInfo({ filtred }) {
-    console.log(filtred);
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import CardGroup from 'react-bootstrap/CardGroup';
+import { useNavigate } from 'react-router-dom';
+
+import styles from './Product.module.css';
+
+export default function MoreInfo(data) {
+
+    const navigate = useNavigate();
 
     return (
-        <>
-            <p>{filtred.id}</p>
-            <p>{filtred.name}</p>
-            <p>{filtred.type}</p>
-            <p>{filtred.description}</p>
-            <p>{filtred.imageUrl}</p>
-            <p>{filtred.alt}</p>
-        </>
+        <CardGroup className={styles['cardGroup']} >
+        <Card>
+            <Card.Img variant="top" src={data.imageUrl} className={styles['imageStyle']} />
+            <Card.Body>
+                <Card.Title>{data.name}</Card.Title>
+                <Card.Text>{data.description}</Card.Text>
+                <Card.Text>{data.id}</Card.Text>
+                <Card.Text>{data.alt}</Card.Text>
+            </Card.Body>
+            <Card.Footer>
+                <Button className={styles['btn']} onClick={() => navigate(-1)} variant="light">Go back</Button>
+                <Button className={styles['btn']} onClick={() => navigate('/contact')} variant="light">Contact us</Button>
+            </Card.Footer>
+        </Card>
+    </CardGroup>
     );
 }
