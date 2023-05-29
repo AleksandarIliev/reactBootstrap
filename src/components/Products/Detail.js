@@ -14,14 +14,27 @@ export const Detail = () => {
     console.log(pathname);
     console.log(num);
 
+    // useEffect(() => {
+    //     fetch(baseUrl)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setData(data.database.filter(x => {
+    //                 return x.id === num;
+    //             }));
+    //         })
+    // }, [num])
+
+    async function getDetails() {
+        let res = await fetch(baseUrl, {
+            "method": "GET",
+            "Content-Type": "application/json",
+        });
+        let dataDetail = await res.json();
+        setData(dataDetail = dataDetail.database.filter((x => x.id === num)));
+    }
+    
     useEffect(() => {
-        fetch(baseUrl)
-            .then(res => res.json())
-            .then(data => {
-                setData(data.database.filter(x => {
-                    return x.id === num;
-                }));
-            })
+        getDetails();
     }, [num])
 
     console.log(data);
