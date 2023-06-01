@@ -66,16 +66,27 @@ function App() {
                     <Route path="/allProducts" element={<AllProducts data={data} pathname={pathname} />}></Route>
                     <Route path={`/allProducts/:${data.id}`} element={<Detail data={data}/>}></Route>
                     <Route path="/vibroMachines" element={<AllProducts data={data.filter(data => data.type.includes('vibroMachines'))} />}></Route>
+                    <Route path={`/vibroMachines/:${data.id}`} element={<Detail data={data} />}></Route>
                     <Route path="/measuringEquipments" element={<AllProducts data={data.filter(data => data.type.includes('measuringEquipments'))} />}></Route>
+                    <Route path={`/measuringEquipments/:${data.id}`} element={<Detail data={data} />}></Route>
                     <Route path="/transportMachines" element={<AllProducts data={data.filter(data => data.type.includes('transportMachines'))} />}></Route>
+                    <Route path={`/transportMachines/:${data.id}`} element={<Detail data={data} />}></Route>
                     <Route path="/bunkers" element={<AllProducts data={data.filter(data => data.type.includes('bunkers'))} />}></Route>
+                    <Route path={`/bunkers/:${data.id}`} element={<Detail data={data} />}></Route>
                     <Route path="/shredderMachines" element={<AllProducts data={data.filter(data => data.type.includes('shredderMachines'))} />}></Route>
+                    <Route path={`/shredderMachines/:${data.id}`} element={<Detail data={data} />}></Route>
                     <Route path="/kitchenEquipments" element={<AllProducts data={data.filter(data => data.type.includes('kitchenEquipments'))} />}></Route>
+                    <Route path={`/kitchenEquipments/:${data.id}`} element={<Detail data={data} />}></Route>
                     <Route path="/pneumaticMachines" element={<AllProducts data={data.filter(data => data.type.includes('pneumaticMachines'))} />}></Route>
+                    <Route path={`/pneumaticMachines/:${data.id}`} element={<Detail data={data} />}></Route>
                     <Route path="/sievedMachines" element={<AllProducts data={data.filter(data => data.type.includes('sievedMachines'))} />}></Route>
+                    <Route path={`/sievedMachines/:${data.id}`} element={<Detail data={data} />}></Route>
                     <Route path="/hydraulicMachines" element={<AllProducts data={data.filter(data => data.type.includes('hydraulicMachines'))} />}></Route>
+                    <Route path={`/hydraulicMachines/:${data.id}`} element={<Detail data={data} />}></Route>
                     <Route path="/filteringMachines" element={<AllProducts data={data.filter(data => data.type.includes('filteringMachines'))} />}></Route>
+                    <Route path={`/filteringMachines/:${data.id}`} element={<Detail data={data} />}></Route>
                     <Route path="/dosingMachines" element={<AllProducts data={data.filter(data => data.type.includes('dosingMachines'))} />}></Route>
+                    <Route path={`/dosingMachines/:${data.id}`} element={<Detail data={data} />}></Route>
 
                     <Route path={`*/:${data.id}`} element={<Detail data={data.filter(data => data.id)} />}></Route>
                     
@@ -90,3 +101,7 @@ function App() {
 }
 
 export default App;
+
+
+//ant Design
+//css flexBox

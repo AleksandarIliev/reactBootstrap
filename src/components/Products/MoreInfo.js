@@ -13,7 +13,7 @@ export default function MoreInfo( {data} ) {
     return (
         <CardGroup className={styles['cardGroup']} >
         <Card>
-            <Card.Img variant="top" src={`../../../public/${data.imageUrl}`} className={styles['imageStyle']} />
+            <Card.Img variant="top" src={`/${data.imageUrl}`} className={styles['imageStyle']} />
             <Card.Body>
                 <Card.Title>{data.name}</Card.Title>
                 <Card.Text>{data.description}</Card.Text>
