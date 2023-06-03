@@ -49,10 +49,10 @@ export const About = () => {
                 <Accordion.Body>
                     <p>Eng. Michail Mihailov - civil engineer/civil construction</p>
                     <p>Eng. Danail Angelov - machanical engineer/automotive</p>
-                    <p>Eng. Marian Iliev - mechanical engineer/printing industry</p>
+                    <p>Eng. Marian Iliev - mechanical engineer</p>
                     <p>Eng. Ivailo Lalov - electrical engineer</p>
                     <p>Eng. Aleksandar Iovchev - mechanical engineer/automotive</p>
-                    <p>Eng. Plamen Angelov - mechanical engineer/metrologist</p>
+                    <p>Dr.Eng. Plamen Angelov - mechanical engineer/metrologist</p>
                     <p>Arch. Bogdana Nikolova - architect/civil construction</p>
                     <p>Eng. Aleksandar Iliev - mechanical engineer/constructor</p>
                 </Accordion.Body>

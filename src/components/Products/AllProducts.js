@@ -6,17 +6,14 @@ export default function AllProducts({ data, pathname }) {
         <div>
             {pathname === "/allProducts" ? (
                 <>
-                    <h5 className={styles['title']}>Here you can see the full list of products developed by us:</h5>
-                    <ul className={styles['product']}> {data.map(x => <li className={styles.liStyle} key={x.id}><Product {...x} /></li>)}</ul>
-                    <h5 className={styles['title']}>... and we won't stop there.</h5>
+                <h5 className={styles['title']}>Here you can see the full list of products developed by us:</h5>
+                <ul className={styles['product']}> {data.map(x => <li className={styles.liStyle} key={x.id}><Product {...x} /></li>)}</ul>
+                <h5 className={styles['title']}>... and we won't stop there.</h5>
                 </>
             ) : (
-                <>
-                    {/* <p>This is {`${pathname = pathname.replace(/(^\/[a-z]+)([A-Z][a-z]+)/g, '$1 $2')}`} section:</p> */}
-                    <ul className={styles['product']}>
-                        {data.map(x => <li className={styles.liStyle} key={x.id}><Product {...x} /></li>)}
-                    </ul>
-                </>
+                <ul className={styles['product']}>
+                    {data.map(x => <li className={styles.liStyle} key={x.id}><Product {...x} /></li>)}
+                </ul>
             )}
         </div>
     );
