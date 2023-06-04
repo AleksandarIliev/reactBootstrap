@@ -87,6 +87,7 @@ function App() {
                     <Route path={`/filteringMachines/:${data.id}`} element={<Detail data={data}/>}></Route>
                     <Route path="/dosingMachines" element={<AllProducts data={data.filter(data => data.type.includes('dosingMachines'))} />}></Route>
                     <Route path={`/dosingMachines/:${data.id}`} element={<Detail data={data}/>}></Route>
+                    <Route path={`/:${data.id}`} element={<Detail data={data}/>}></Route>
 
                     <Route path={`*/:${data.id}`} element={<Detail data={data.filter(data => data.id)} />}></Route>
                     
