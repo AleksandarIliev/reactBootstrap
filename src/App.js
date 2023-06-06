@@ -12,13 +12,14 @@ import { Register } from './components/Register/Register';
 import { About } from './components/About/About';
 import { Header } from './components/Header/Header';
 import { Error } from './components/Error/Error';
+import { Detail } from './components/Products/Detail';
 
 import { Routes, Route, useLocation, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 // import { ProductDetails } from './components/Products/ProductDetails';
-import { Detail } from './components/Products/Detail';
 import { AuthContext } from './components/Contexts/AuthContext';
-
+import * as authServices from './components/Services/authServices';
+import { useNavigate } from 'react-router-dom';
 // const baseUrl = 'http://localhost:3030/jsonstore/todos';
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
     const location = useLocation();
     const { pathname } = location;
     const [auth, setAuth] = useState({});
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch(`http://localhost:3000/productData.json`)
@@ -45,11 +47,25 @@ function App() {
     }, [])
 
     const onLoginSubmit = async (data) => {
-        console.log(await data);
+        try {
+            const result = await authServices.login(data);
+            setAuth(result);
+            navigate('/')
+        } catch(error) {
+            console.log('There is a problem with your data. Please try again.');
+        }
+    }
+
+    const context = {
+        onLoginSubmit,
+        userId: auth._id,
+        token: auth.accessToken,
+        userEmail: auth.email,
+        isAuthenticated: !!auth.accessToken
     }
 
     return (
-        <AuthContext.Provider value={{onLoginSubmit}}>
+        <AuthContext.Provider value={context}>
             <div className="App">
                 <Container fluid="xxl" className={styles['AppStyle']}>
                     <Header />

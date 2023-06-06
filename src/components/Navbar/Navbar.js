@@ -3,8 +3,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { LinkContainer } from 'react-router-bootstrap';
 import styles from './Navbar.module.css';
+import { useContext } from 'react';
+import { AuthContext } from '../Contexts/AuthContext';
 
 function CollapsibleExample({ data, pathname }) {
+    const { isAuthenticated, userEmail } = useContext(AuthContext);
+
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <LinkContainer to="/">
@@ -31,10 +35,18 @@ function CollapsibleExample({ data, pathname }) {
                     </NavDropdown>
                     <LinkContainer to="/contact"><Nav.Link>Contact</Nav.Link></LinkContainer>
                 </Nav>
-                <Nav>
-                    <LinkContainer to="/login"><Nav.Link>Login</Nav.Link></LinkContainer>
-                    <LinkContainer to="/register"><Nav.Link eventKey={2}>Register</Nav.Link></LinkContainer>
-                </Nav>
+                {isAuthenticated && (
+                    <>
+                        <LinkContainer to="/logout"><Nav.Link>Logout</Nav.Link></LinkContainer>
+                        <span>{userEmail}</span>
+                    </>
+                )}
+                {!isAuthenticated && (
+                    <Nav>
+                        <LinkContainer to="/login"><Nav.Link>Login</Nav.Link></LinkContainer>
+                        <LinkContainer to="/register"><Nav.Link eventKey={2}>Register</Nav.Link></LinkContainer>
+                    </Nav>
+                )}
             </Navbar.Collapse>
         </Navbar>
     );

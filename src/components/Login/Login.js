@@ -14,9 +14,9 @@ const LoginFormKeys = {
 export const Login = () => {
     const [isChecked, setChecked] = useState({});
     const { onLoginSubmit } = useContext(AuthContext);
-    const { values, changeHandler } = useForm({
+    const { values, changeHandler, onSubmit } = useForm({
         [LoginFormKeys.Email]: '',
-        [LoginFormKeys.Password]: '',
+        [LoginFormKeys.Password]: ''
     }, onLoginSubmit)
 
     const onChecked = (e) => {
@@ -24,7 +24,7 @@ export const Login = () => {
     }
 
     return (
-        <Form className={styles.logStyle} onSubmit={onLoginSubmit}>
+        <Form method="POST" className={styles.logStyle} onSubmit={onSubmit}>
             <Form.Label><h5>Log in to your account</h5></Form.Label><br />
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
