@@ -13,6 +13,7 @@ import { About } from './components/About/About';
 import { Header } from './components/Header/Header';
 import { Error } from './components/Error/Error';
 import { Detail } from './components/Products/Detail';
+import { Logout } from './components/Logout/Logout';
 
 import { Routes, Route, useLocation, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -56,8 +57,30 @@ function App() {
         }
     }
 
+    const onRegisterSubmit = async (values) => {
+        const { rePass, ...registerData} = values;
+        if(rePass !== registerData.password) {
+            return;
+        }
+
+        try {
+            const result = await authServices.register(registerData);
+            setAuth(result);
+            navigate('/login')
+        } catch(error) {
+            console.log('There is a problem with your data. Please try again.');
+        }
+    }
+
+    const onLogout = async () => {
+        await authServices.logout();
+        setAuth({});
+    }
+
     const context = {
+        onRegisterSubmit,
         onLoginSubmit,
+        onLogout,
         userId: auth._id,
         token: auth.accessToken,
         userEmail: auth.email,
@@ -84,6 +107,7 @@ function App() {
                         <Route path="/product" element={<Product pathname={pathname} />}></Route>
                         <Route path="/contact" element={<Contact />}></Route>
                         <Route path="/login" element={<Login />}></Route>
+                        <Route path="/logout" element={<Logout />}></Route>
                         <Route path="/register" element={<Register />}></Route>
 
                         <Route path="/allProducts" element={<AllProducts data={data} pathname={pathname} />}></Route>

@@ -10,22 +10,21 @@ export const Detail = () => {
     const [data, setData] = useState([]);
     let num = params[data.id];
 
-    async function getDetails() {
-        await fetch(baseUrl)
-            .then(res => res.json())
-            .then(res => {
-                return setData(res.database.filter(x => x.id === num));
-            })
-            .catch(err => console.error(err));
-    }
-
     useEffect(() => {
+        async function getDetails() {
+            await fetch(baseUrl)
+                .then(res => res.json())
+                .then(res => {
+                    return setData(res.database.filter(x => x.id === num));
+                })
+                .catch(err => console.error(err));
+        }
         getDetails();
     }, [num])
 
-    return ( 
+    return (
         <>
-        { data.length === 0 ? <Error /> : <MoreInfo data={data} /> }
+            {data.length === 0 ? <Error /> : <MoreInfo data={data} />}
         </>
     );
 }
