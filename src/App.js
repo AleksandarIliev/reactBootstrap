@@ -62,13 +62,12 @@ function App() {
         if(rePass !== registerData.password) {
             return;
         }
-
         try {
             const result = await authServices.register(registerData);
             setAuth(result);
             navigate('/login')
         } catch(error) {
-            console.log('There is a problem with your data. Please try again.');
+            console.log('Something went wrong. Please try again later.');
         }
     }
 

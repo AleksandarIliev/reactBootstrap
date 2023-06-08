@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { NavLink } from 'react-router-dom';
-import { useState } from "react";
+// import { useState } from "react";
 import styles from './Register.module.css'
 
 import { useContext } from 'react';
@@ -14,7 +14,7 @@ export const Register = () => {
         email: '',
         password: '',
         repass: '',
-        gender: '',
+        gender: 'male',
         phoneNumber: '',
         role: '',
         isChecked: false,
@@ -37,29 +37,29 @@ export const Register = () => {
     //     setPassword(e.target.value);
     // };
 
-    const onRepassChange = (e) => {
-        setRepass(e.target.value);
-    };
+    // const onRepassChange = (e) => {
+    //     setRepass(e.target.value);
+    // };
 
-    const onGenderChange = (e) => {
-        setGender(e.target.value);
-    }
+    // const onGenderChange = (e) => {
+    //     setGender(e.target.value);
+    // }
 
-    const onPhoneChange = (e) => {
-        setPhoneNumber(e.target.value);
-    }
+    // const onPhoneChange = (e) => {
+    //     setPhoneNumber(e.target.value);
+    // }
 
     // const onContinentChange = (e) => {
     //     setContinent(state => ({ ...state, [e.target.value]: e.target.checked }));
     // }
 
-    const onRoleChange = (e) => {
-        setRole(e.target.value);
-    }
+    // const onRoleChange = (e) => {
+    //     setRole(e.target.value);
+    // }
 
-    const onChecked = (e) => {
-        setChecked(state => ({ ...state, [e.target.value]: e.target.checked }));
-    }
+    // const onChecked = (e) => {
+    //     setChecked(state => ({ ...state, [e.target.value]: e.target.checked }));
+    // }
 
     // const onSubmitHandler = (e) => {
     //     e.preventDefault();
@@ -90,8 +90,8 @@ export const Register = () => {
                 <Form.Control type="password" name="repeatPassword" value={values.rePass} onChange={changeHandler} placeholder="Repeat password" />
             </Form.Group>
             <Form.Group>
-                <Form.Check type="radio" inline name="gender" id="male" value={values.male} onChange={changeHandler} checked={gender === "male"} label="male" />
-                <Form.Check type="radio" inline name="gender" id="female" value={values.female} onChange={changeHandler} checked={gender === "female"} label="female" />
+                <Form.Check type="radio" inline name="gender" id="male" value={values.male} onChange={changeHandler} checked={values.gender === "male"} label="male" />
+                <Form.Check type="radio" inline name="gender" id="female" value={values.female} onChange={changeHandler} checked={values.gender === "female"} label="female" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Phone number</Form.Label>
@@ -107,8 +107,8 @@ export const Register = () => {
                 </select>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" name="isChecked" id="I'm not a bot" value="I'm not a bot" onChange={changeHandler} checked={isChecked['I\'m not a bot'] || false} label="I'm not a bot" />
-                <Form.Check type="checkbox" name="isChecked" id="My data is currect" value="My data is currect" onChange={changeHandler} checked={isChecked['My data is currect'] || false} label="My phone and email are correct" />
+                <Form.Check type="checkbox" name="isChecked" id="I'm not a bot" value={values.isChecked['I\'m not a bot']} onChange={changeHandler} checked={values.isChecked['I\'m not a bot'] || false} label="I'm not a bot" />
+                <Form.Check type="checkbox" name="isChecked" id="My data is currect" value={values.isChecked['My data is currect']} onChange={changeHandler} checked={values.isChecked['My data is currect'] || false} label="My phone and email are correct" />
             </Form.Group>
             <Button variant="primary" type="submit">Submit</Button><br />
             <Form.Text id="passwordHelpBlock" muted>If you have account go to <NavLink to='/login'>login page.</NavLink></Form.Text>
