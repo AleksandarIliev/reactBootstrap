@@ -16,7 +16,8 @@ export const Login = () => {
     const { onLoginSubmit } = useContext(AuthContext);
     const { values, changeHandler, onSubmit } = useForm({
         [LoginFormKeys.Email]: '',
-        [LoginFormKeys.Password]: ''
+        [LoginFormKeys.Password]: '',
+        isChecked,
     }, onLoginSubmit)
 
     const onChecked = (e) => {

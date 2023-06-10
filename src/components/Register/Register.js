@@ -13,11 +13,11 @@ export const Register = () => {
     const { values, changeHandler, onSubmit } = useForm({
         email: '',
         password: '',
-        repass: '',
-        gender: 'male',
+        rePass: '',
+        gender: 'female',
         phoneNumber: '',
         role: '',
-        isChecked: false,
+        isChecked: {},
     }, onRegisterSubmit);
 
     // const [email, setEmail] = useState('');
@@ -87,28 +87,28 @@ export const Register = () => {
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Repeat password</Form.Label>
-                <Form.Control type="password" name="repeatPassword" value={values.rePass} onChange={changeHandler} placeholder="Repeat password" />
+                <Form.Control type="password" name="rePass" value={values.rePass} onChange={changeHandler} placeholder="Repeat password" />
             </Form.Group>
             <Form.Group>
-                <Form.Check type="radio" inline name="gender" id="male" value={values.male} onChange={changeHandler} checked={values.gender === "male"} label="male" />
-                <Form.Check type="radio" inline name="gender" id="female" value={values.female} onChange={changeHandler} checked={values.gender === "female"} label="female" />
+                <Form.Check type="radio" inline name="gender" id="male" value="male" onChange={changeHandler} checked={values.gender === "male"} label="Male" />
+                <Form.Check type="radio" inline name="gender" id="female" value="female" onChange={changeHandler} checked={values.gender === "female"} label="Female" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Phone number</Form.Label>
-                <Form.Control type="tel" value={values.phoneNumber} onChange={changeHandler} placeholder="Your GSM number" />
+                <Form.Control type="tel" name="phoneNumber" value={values.phoneNumber} onChange={changeHandler} placeholder="Your GSM number in format 0888777666 or 359888777666" minLength="10" maxLength="12" />
             </Form.Group>
             <Form.Group>
                 <Form.Label>You are: </Form.Label>
-                <select value={values.role} onChange={changeHandler}>
-                    <option value="company">- - -</option>
-                    <option value="company">Company</option>
-                    <option value="private person">Private person</option>
-                    <option value="other">Other</option>
+                <select>
+                    <option value={values.role} onChange={changeHandler}>- - -</option>
+                    <option value={values.role} onChange={changeHandler}>Company</option>
+                    <option value={values.role} onChange={changeHandler}>Private person</option>
+                    <option value={values.role} onChange={changeHandler}>Other</option>
                 </select>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" name="isChecked" id="I'm not a bot" value={values.isChecked['I\'m not a bot']} onChange={changeHandler} checked={values.isChecked['I\'m not a bot'] || false} label="I'm not a bot" />
-                <Form.Check type="checkbox" name="isChecked" id="My data is currect" value={values.isChecked['My data is currect']} onChange={changeHandler} checked={values.isChecked['My data is currect'] || false} label="My phone and email are correct" />
+                <Form.Check type="checkbox" name="isChecked" id="checkbox" value={values.isChecked['I\'m not a bot']} onChange={changeHandler} checked={values.isChecked['I\'m not a bot'] || false} label="I'm not a bot" />
+                <Form.Check type="checkbox" name="isChecked" id="checkbox" value={values.isChecked['My data is currect']} onChange={changeHandler} checked={values.isChecked['My data is currect'] || false} label="My phone and email are correct" />
             </Form.Group>
             <Button variant="primary" type="submit">Submit</Button><br />
             <Form.Text id="passwordHelpBlock" muted>If you have account go to <NavLink to='/login'>login page.</NavLink></Form.Text>

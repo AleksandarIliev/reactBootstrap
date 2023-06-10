@@ -1,11 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import styles from './App.module.css';
-// import TodoList from './components/TodoList/TodoList';
 import ControlledCarousel from './components/RotatePhoto/RotatePhoto';
-import AllProducts from './components/Products/AllProducts';
 import Container from 'react-bootstrap/Container';
+// import TodoList from './components/TodoList/TodoList';
+import styles from './App.module.css';
 import Footer from './components/Footer/Footer';
 import Product from './components/Products/Product';
+import AllProducts from './components/Products/AllProducts';
 import { Contact } from './components/Contact/Contact';
 import { Login } from './components/Login/Login';
 import { Register } from './components/Register/Register';
@@ -19,7 +19,7 @@ import { Routes, Route, useLocation, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 // import { ProductDetails } from './components/Products/ProductDetails';
 import { AuthContext } from './components/Contexts/AuthContext';
-import * as authServices from './components/Services/authServices';
+import { authServiceFactory } from './components/Services/authServices';
 import { useNavigate } from 'react-router-dom';
 // const baseUrl = 'http://localhost:3030/jsonstore/todos';
 
@@ -49,30 +49,32 @@ function App() {
 
     const onLoginSubmit = async (data) => {
         try {
-            const result = await authServices.login(data);
+            const result = await authServiceFactory.login(data);
             setAuth(result);
             navigate('/')
-        } catch(error) {
+        } catch (error) {
             console.log('There is a problem with your data. Please try again.');
         }
     }
 
     const onRegisterSubmit = async (values) => {
-        const { rePass, ...registerData} = values;
-        if(rePass !== registerData.password) {
+        const { rePass, ...registerData } = values;
+        if (rePass !== registerData.password) {
             return;
         }
         try {
-            const result = await authServices.register(registerData);
+            const result = await authServiceFactory.register(registerData);
             setAuth(result);
-            navigate('/login')
-        } catch(error) {
+            navigate('/allProducts');
+            console.log(result);
+        } catch (error) {
+            console.log(error);
             console.log('Something went wrong. Please try again later.');
         }
     }
 
     const onLogout = async () => {
-        await authServices.logout();
+        await authServiceFactory.logout();
         setAuth({});
     }
 

@@ -7,7 +7,7 @@ import styles from './Product.module.css';
 
 export default function MoreInfo( {data} ) {
     data = data[0];
-    console.log(data);
+    // console.log(data);
     const navigate = useNavigate();
 
     return (
