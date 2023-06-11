@@ -33,11 +33,12 @@ function App() {
     //         setTodos(Object.values(result));
     //     })
     // }, []);
+    const navigate = useNavigate();
     const [data, setData] = useState([]);
+    const [auth, setAuth] = useState({});
     const location = useLocation();
     const { pathname } = location;
-    const [auth, setAuth] = useState({});
-    const navigate = useNavigate();
+    const authService = authServiceFactory(auth.accessToken);
 
     useEffect(() => {
         fetch(`http://localhost:3000/productData.json`)
@@ -49,7 +50,7 @@ function App() {
 
     const onLoginSubmit = async (data) => {
         try {
-            const result = await authServiceFactory.login(data);
+            const result = await authService.login(data);
             setAuth(result);
             navigate('/')
         } catch (error) {
@@ -63,18 +64,17 @@ function App() {
             return;
         }
         try {
-            const result = await authServiceFactory.register(registerData);
+            const result = await authService.register(registerData);
             setAuth(result);
             navigate('/allProducts');
             console.log(result);
         } catch (error) {
-            console.log(error);
             console.log('Something went wrong. Please try again later.');
         }
     }
 
     const onLogout = async () => {
-        await authServiceFactory.logout();
+        await authService.logout();
         setAuth({});
     }
 

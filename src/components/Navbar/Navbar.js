@@ -36,10 +36,10 @@ function CollapsibleExample({ data, pathname }) {
                     <LinkContainer to="/contact"><Nav.Link>Contact</Nav.Link></LinkContainer>
                 </Nav>
                 {isAuthenticated && (
-                    <>
+                    <Nav>
+                        <span className={styles['logedUser']}>{userEmail}</span>
                         <LinkContainer to="/logout"><Nav.Link>Logout</Nav.Link></LinkContainer>
-                        <span>{userEmail}</span>
-                    </>
+                    </Nav>
                 )}
                 {!isAuthenticated && (
                     <Nav>
