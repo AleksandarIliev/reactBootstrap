@@ -1,9 +1,9 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { NavLink } from 'react-router-dom';
-import { useState, useContext } from "react";
+import { useState } from "react";
 import styles from './Login.module.css';
-import { AuthContext } from '../Contexts/AuthContext';
+import { useAuthContext } from '../Contexts/AuthContext';
 import { useForm } from '../Hooks/useForm';
 
 const LoginFormKeys = {
@@ -13,7 +13,7 @@ const LoginFormKeys = {
 
 export const Login = () => {
     const [isChecked, setChecked] = useState({});
-    const { onLoginSubmit } = useContext(AuthContext);
+    const { onLoginSubmit } = useAuthContext();
     const { values, changeHandler, onSubmit } = useForm({
         [LoginFormKeys.Email]: '',
         [LoginFormKeys.Password]: '',
