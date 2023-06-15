@@ -18,6 +18,7 @@ import { Logout } from './components/Logout/Logout';
 import { Routes, Route, useLocation, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { AuthProvider } from './components/Contexts/AuthContext';
+import { AddComment } from './components/Comments/AddComment';
 
 // const baseUrl = 'http://localhost:3030/jsonstore/todos';
 
@@ -69,6 +70,7 @@ function App() {
 
                         <Route path="/allProducts" element={<AllProducts data={data} pathname={pathname} />}></Route>
                         <Route path={`/allProducts/:${data.id}`} element={<Detail data={data} />}></Route>
+                        <Route path={`/allProducts/:${data.id}/addComment`} element={<AddComment />}></Route>
                         <Route path="/vibroMachines" element={<AllProducts data={data.filter(data => data.type.includes('vibroMachines'))} />}></Route>
                         <Route path={`/vibroMachines/:${data.id}`} element={<Detail data={data} />}></Route>
                         <Route path="/measuringEquipments" element={<AllProducts data={data.filter(data => data.type.includes('measuringEquipments'))} />}></Route>

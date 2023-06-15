@@ -22,7 +22,7 @@ export const Comments = () => {
                 </Card.Body>
                 <Card.Footer>
                     <Button className={styles['btn']} onClick={() => navigate('/edit')} variant="light">Edit</Button>
-                    <Button className={styles['btn']} onClick={() => navigate('/addComment')} variant="light">Add comment</Button>
+                    <Button className={styles['btn']} onClick={() => navigate('./addComment')} variant="light">Add comment</Button>
                     <Button className={styles['btn']} onClick={() => navigate(-1)} variant="light">Cancel</Button>
                 </Card.Footer>
             </Card>
