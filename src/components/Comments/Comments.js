@@ -27,7 +27,7 @@ export const Comments = () => {
                 </Card.Footer>
             </Card>
         </CardGroup>
-        }
+        } : {}
         </>
     );
 }

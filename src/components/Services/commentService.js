@@ -1,13 +1,14 @@
 import { requestFactory } from './requester';
 
-const baseUrl = 'jttp://localhost:3000/http://localhost:3000/productData.json/comments'
+const baseUrl = 'http://localhost:3000/productData.json/comments'
 const request = requestFactory();
 
 export const getAll = async (id) => {
-    const query = encodeURIComponent(`id="${id}"`);
-    const result = await request.get(`${baseUrl}?where=${query}`);
-    const comment = Object.values(result);
-    return comment;
+    const serchedQuery = encodeURIComponent(`id="${id}"`);
+    const relationQuery = encodeURIComponent(`author=_id:users`);
+    const result = await request.get(`${baseUrl}?where=${serchedQuery}&load=${relationQuery}`);
+    const comments = Object.values(result);
+    return comments;
 }
 
 export const create = async(id, comment) => {
