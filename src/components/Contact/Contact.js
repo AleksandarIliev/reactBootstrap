@@ -3,8 +3,10 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import styles from './Contact.module.css';
+import { useNavigate } from 'react-router-dom';
 
 export const Contact = () => {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [textField, setTextField] = useState('');
@@ -28,15 +30,24 @@ export const Contact = () => {
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-
         console.log(email);
-        console.log(phoneNumber);
+        console.log(phoneNumber);        
         console.log(textField);
-        console.log(isChecked);
+        console.log(isChecked['I\'m not a bot']);
+        console.log(isChecked['My data is currect']);
+
+        if (isChecked['I\'m not a bot'] === true && isChecked['My data is currect'] === true) {
+            return(
+                navigate('./correctSend')
+            ) 
+        } 
+        return (
+            navigate('./error')
+        );
     }
 
     return (
-        <Form className={styles.contactStyle} onSubmit={onSubmitHandler}>
+        <Form method="POST" className={styles.contactStyle} onSubmit={onSubmitHandler}>
             <Form.Label><h5>If you want to contact with us, here is right place to do this</h5></Form.Label><br />
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
@@ -44,7 +55,7 @@ export const Contact = () => {
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Phone number</Form.Label>
-                <Form.Control type="tel" value={phoneNumber} onChange={onPhoneChange} placeholder="Your GSM number" />
+                <Form.Control type="tel" value={phoneNumber} onChange={onPhoneChange} placeholder="Your GSM number in format 0888777666 or 359888777666" minLength="10" maxLength="12" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Write here for what this is about</Form.Label>

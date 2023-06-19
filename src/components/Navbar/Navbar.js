@@ -2,9 +2,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { LinkContainer } from 'react-router-bootstrap';
-
 import styles from './Navbar.module.css';
-
 import { useContext } from 'react';
 import { AuthContext } from '../Contexts/AuthContext';
 

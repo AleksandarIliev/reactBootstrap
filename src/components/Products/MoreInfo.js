@@ -4,7 +4,6 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './Product.module.css';
-import { Comments } from '../Comments/Comments';
 
 export default function MoreInfo( {data} ) {
     data = data[0];
@@ -20,11 +19,10 @@ export default function MoreInfo( {data} ) {
                 <Card.Text>{data.description}</Card.Text>
                 <Card.Text>{data.id}</Card.Text>
                 <Card.Text>{data.alt}</Card.Text>
-                <Comments />
             </Card.Body>
             <Card.Footer>
                 <Button className={styles['btn']} onClick={() => navigate(-1)} variant="light">Go back</Button>
-                <Button className={styles['btn']} onClick={() => navigate('/addComment')} variant="light">Contact us</Button>
+                <Button className={styles['btn']} onClick={() => navigate('/contact')} variant="light">Contact us</Button>
             </Card.Footer>
         </Card>
     </CardGroup>

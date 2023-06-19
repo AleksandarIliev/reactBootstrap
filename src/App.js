@@ -17,9 +17,11 @@ import { Logout } from './components/Logout/Logout';
 
 import { Routes, Route, useLocation, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { AuthProvider } from './components/Contexts/AuthContext';
-import { AddComment } from './components/Comments/AddComment';
-
+// import { ProductDetails } from './components/Products/ProductDetails';
+import { AuthContext } from './components/Contexts/AuthContext';
+import { authServiceFactory } from './components/Services/authServices';
+import { useNavigate } from 'react-router-dom';
+import { CorrectSend } from './components/Contact/CorrectSend';
 // const baseUrl = 'http://localhost:3030/jsonstore/todos';
 
 function App() {
@@ -32,10 +34,12 @@ function App() {
     //         setTodos(Object.values(result));
     //     })
     // }, []);
-    
+    const navigate = useNavigate();
     const [data, setData] = useState([]);
+    const [auth, setAuth] = useState({});
     const location = useLocation();
     const { pathname } = location;
+    const authService = authServiceFactory(auth.accessToken);
 
     useEffect(() => {
         fetch(`http://localhost:3000/productData.json`)
@@ -45,8 +49,48 @@ function App() {
             })
     }, [])
 
+    const onLoginSubmit = async (data) => {
+        try {
+            const result = await authService.login(data);
+            setAuth(result);
+            navigate('/')
+        } catch (error) {
+            console.log('There is a problem with your data. Please try again.');
+        }
+    }
+
+    const onRegisterSubmit = async (values) => {
+        const { rePass, ...registerData } = values;
+        if (rePass !== registerData.password) {
+            return;
+        }
+        try {
+            const result = await authService.register(registerData);
+            setAuth(result);
+            navigate('/allProducts');
+            console.log(result);
+        } catch (error) {
+            console.log('Something went wrong. Please try again later.');
+        }
+    }
+
+    const onLogout = async () => {
+        await authService.logout();
+        setAuth({});
+    }
+
+    const context = {
+        onRegisterSubmit,
+        onLoginSubmit,
+        onLogout,
+        userId: auth._id,
+        token: auth.accessToken,
+        userEmail: auth.email,
+        isAuthenticated: !!auth.accessToken
+    }
+
     return (
-        <AuthProvider>
+        <AuthContext.Provider value={context}>
             <div className="App">
                 <Container fluid="xxl" className={styles['AppStyle']}>
                     <Header />
@@ -64,13 +108,13 @@ function App() {
                         <Route path="/about" element={<About />}></Route>
                         <Route path="/product" element={<Product pathname={pathname} />}></Route>
                         <Route path="/contact" element={<Contact />}></Route>
+                        <Route path="/contact/correctSend" element={<CorrectSend />}></Route>
                         <Route path="/login" element={<Login />}></Route>
                         <Route path="/logout" element={<Logout />}></Route>
                         <Route path="/register" element={<Register />}></Route>
 
                         <Route path="/allProducts" element={<AllProducts data={data} pathname={pathname} />}></Route>
                         <Route path={`/allProducts/:${data.id}`} element={<Detail data={data} />}></Route>
-                        <Route path={`/allProducts/:${data.id}/addComment`} element={<AddComment />}></Route>
                         <Route path="/vibroMachines" element={<AllProducts data={data.filter(data => data.type.includes('vibroMachines'))} />}></Route>
                         <Route path={`/vibroMachines/:${data.id}`} element={<Detail data={data} />}></Route>
                         <Route path="/measuringEquipments" element={<AllProducts data={data.filter(data => data.type.includes('measuringEquipments'))} />}></Route>
@@ -104,7 +148,7 @@ function App() {
                     <Footer />
                 </Container>
             </div>
-        </AuthProvider>
+        </AuthContext.Provider>
     );
 }
 
