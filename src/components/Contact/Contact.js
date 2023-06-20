@@ -17,7 +17,12 @@ export const Contact = () => {
     }
 
     const onPhoneChange = (e) => {
-        setPhoneNumber(e.target.value);
+        e.preventDefault();
+        const regEx = /(08)\d{8}|(\+359)\d{10}/g;
+        const input = e.target.value; 
+        if (input.match(regEx) >= 0) {
+            setPhoneNumber(e.target.value);
+        } 
     }
 
     const onTextChange = (e) => {
@@ -30,13 +35,8 @@ export const Contact = () => {
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        console.log(email);
-        console.log(phoneNumber);        
-        console.log(textField);
-        console.log(isChecked['I\'m not a bot']);
-        console.log(isChecked['My data is currect']);
 
-        if (isChecked['I\'m not a bot'] === true && isChecked['My data is currect'] === true) {
+        if (isChecked['I\'m not a bot'] === true && isChecked['My data is currect'] === true && textField.length > 0) {
             return(
                 navigate('./correctSend')
             ) 
@@ -48,14 +48,14 @@ export const Contact = () => {
 
     return (
         <Form method="POST" className={styles.contactStyle} onSubmit={onSubmitHandler}>
-            <Form.Label><h5>If you want to contact with us, here is right place to do this</h5></Form.Label><br />
+            <Form.Label><h5>If you want to contact with us, here is right place to do this:</h5></Form.Label><br />
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" value={email} onChange={onEmailChange} placeholder="Enter email" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Phone number</Form.Label>
-                <Form.Control type="tel" value={phoneNumber} onChange={onPhoneChange} placeholder="Your GSM number in format 0888777666 or 359888777666" minLength="10" maxLength="12" />
+                <Form.Control type="tel" value={phoneNumber} onChange={onPhoneChange} placeholder="Your GSM number in format 0888777666 or +359888777666" minLength="10" maxLength="13" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Write here for what this is about</Form.Label>
