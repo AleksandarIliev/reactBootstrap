@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
-import emailjs from '@emailjs/browser';
+// import emailjs from '@emailjs/browser';
+import emailjs from 'emailjs-com';
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -40,13 +41,19 @@ export const Contact = () => {
 
         if (isChecked['I\'m not a bot'] === true && isChecked['My data is currect'] === true && textField.length > 0) {
             return (
-                emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, form.current, process.env.REACT_APP_PUBLIC_KEY)
-                    .then((result) => {
+                emailjs.sendForm(
+                    process.env.REACT_APP_SERVICE_ID, 
+                    process.env.REACT_APP_TEMPLATE_ID, 
+                    form.current, 
+                    process.env.REACT_APP_PUBLIC_KEY,
+                    ).then((result) => {
                         console.log(result.text);
-                        navigate('./correctSend')
+                        navigate('./correctSend');
+                        e.target.reset();
                     }, (error) => {
                         console.log(error.text);
                         navigate('./error');
+                        e.target.reset();
                     }))
         }
         return (
@@ -56,15 +63,6 @@ export const Contact = () => {
 
     return (
         <>
-            <script type="text/javascript"
-                src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-            </script>
-            <script type="text/javascript">
-                {(function () {
-                    emailjs.init(process.env.REACT_APP_PUBLIC_KEY);
-                })()}
-            </script>
-
             <Form ref={form} method="POST" className={styles.contactStyle} onSubmit={onSubmitHandler}>
                 <Form.Label><h5>If you want to contact with us, here is right place to do this:</h5></Form.Label><br />
                 <Form.Group className="mb-3" controlId="formBasicEmail">
