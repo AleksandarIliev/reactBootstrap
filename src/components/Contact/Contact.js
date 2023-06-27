@@ -49,13 +49,12 @@ export const Contact = () => {
                     ).then((result) => {
                         console.log(result.text);
                         navigate('./correctSend');
-                        e.target.reset();
                     }, (error) => {
                         console.log(error.text);
                         navigate('./error');
-                        e.target.reset();
-                    }))
-        }
+                    }, 
+                    e.target.reset()
+                    ))}
         return (
             navigate('./error')
         );
