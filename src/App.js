@@ -107,7 +107,11 @@ function App() {
                         }></Route>
                         <Route path="/about" element={<About />}></Route>
                         <Route path="/product" element={<Product pathname={pathname} />}></Route>
-                        <Route path="/contact" element={<Contact />}></Route>
+                        <Route path="/contact" 
+                        serviceId={process.env.REACT_APP_EMAILJS_SERVICE_ID} 
+                        templateId={process.env.REACT_APP_EMAILJS_TEMPLATE_ID}
+                        userssId={process.env.REACT_APP_EMAILJS_USER_ID} 
+                        element={<Contact />}></Route>
                         <Route path="/contact/correctSend" element={<CorrectSend />}></Route>
                         <Route path="/login" element={<Login />}></Route>
                         <Route path="/logout" element={<Logout />}></Route>

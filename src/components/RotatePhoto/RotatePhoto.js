@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import styles from './rotatedPhoto.module.css';
+import { Link } from 'react-router-dom';
 
 export default function ControlledCarousel() {
     const [index, setIndex] = useState(0);
@@ -20,7 +21,7 @@ export default function ControlledCarousel() {
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3><a className={styles.anch} href="/products">Line for paqueting</a></h3>
+                        <h3><Link className={styles.anch} to="/allProducts">Line for paqueting</Link></h3>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -32,7 +33,7 @@ export default function ControlledCarousel() {
                     />
 
                     <Carousel.Caption>
-                        <h3><a className={styles.anch} href='/products'>Section for spedition</a></h3>
+                        <h3><Link className={styles.anch} to="/allProducts">Section for spedition</Link></h3>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -44,7 +45,7 @@ export default function ControlledCarousel() {
                     />
 
                     <Carousel.Caption>
-                        <h3><a className={styles.anch} href='/products'>Conveying belt</a></h3>
+                        <h3><Link className={styles.anch} to="/allProducts">Conveying belt</Link></h3>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -55,7 +56,7 @@ export default function ControlledCarousel() {
                         alt="Fourth slide"
                     />
                     <Carousel.Caption>
-                        <h3><a className={styles.anch} href="/products">Line for nylon recycling</a></h3>
+                        <h3><Link className={styles.anch} to="/allProducts">Line for nylon recycling</Link></h3>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -66,7 +67,7 @@ export default function ControlledCarousel() {
                         alt="Fifth slide"
                     />
                     <Carousel.Caption>
-                        <h3><a className={styles.anch} href="/products">Line for transport and filtering</a></h3>
+                        <h3><Link className={styles.anch} to="/allProducts">Line for transport and filtering</Link></h3>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>

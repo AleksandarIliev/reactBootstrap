@@ -16,7 +16,7 @@ export const CorrectSend = () => {
                 <Modal.Header closeButton>
                     <Modal.Title>Notification message</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Your question is successfully send.</Modal.Body>
+                <Modal.Body>Your question is successfully send. We will reply you as soon as possible.</Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose} onClickCapture={() => navigate('/')}>
                         Go to home

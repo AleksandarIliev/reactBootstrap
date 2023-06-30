@@ -1,6 +1,5 @@
 import { useState, useRef } from 'react';
-// import emailjs from '@emailjs/browser';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -42,46 +41,43 @@ export const Contact = () => {
         if (isChecked['I\'m not a bot'] === true && isChecked['My data is currect'] === true && textField.length > 0) {
             return (
                 emailjs.sendForm(
-                    process.env.REACT_APP_SERVICE_ID, 
-                    process.env.REACT_APP_TEMPLATE_ID, 
+                    process.env.REACT_APP_EMAILJS_SERVICE_ID, 
+                    process.env.REACT_APP_EMAILJS_TEMPLATE_ID, 
                     form.current, 
-                    process.env.REACT_APP_PUBLIC_KEY,
+                    process.env.REACT_APP_EMAILJS_USER_ID
                     ).then((result) => {
                         console.log(result.text);
-                        navigate('./correctSend');
+                        navigate('./correctSend')
                     }, (error) => {
                         console.log(error.text);
                         navigate('./error');
-                    }, 
-                    e.target.reset()
-                    ))}
+                    }))
+        }
         return (
             navigate('./error')
         );
     }
 
     return (
-        <>
-            <Form ref={form} method="POST" className={styles.contactStyle} onSubmit={onSubmitHandler}>
-                <Form.Label><h5>If you want to contact with us, here is right place to do this:</h5></Form.Label><br />
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" name="email" value={email} onChange={onEmailChange} placeholder="Enter email" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Phone number</Form.Label>
-                    <Form.Control type="tel" name="phoneNumber" value={phoneNumber} onChange={onPhoneChange} placeholder="Your GSM number in format 0888777666 or +359888777666" minLength="10" maxLength="13" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>Write here for what this is about</Form.Label>
-                    <Form.Control name="textarea" as="textarea" value={textField} onChange={onTextChange} placeholder="Write here" rows={5} />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" name="isChecked" id="I'm not a bot" value="I'm not a bot" onChange={onChecked} checked={isChecked['I\'m not a bot'] || false} label="I'm not a bot" />
-                    <Form.Check type="checkbox" name="isChecked" id="My data is currect" value="My data is currect" onChange={onChecked} checked={isChecked['My data is currect'] || false} label="My phone and email are correct" />
-                </Form.Group>
-                <Button variant="primary" type="submit">Submit</Button>
-            </Form>
-        </>
+        <Form ref={form} method="POST" className={styles.contactStyle} onSubmit={onSubmitHandler}>
+            <Form.Label><h5>If you want to contact with us, here is right place to do this:</h5></Form.Label><br />
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control type="email" name="email" value={email} onChange={onEmailChange} placeholder="Enter email" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Phone number</Form.Label>
+                <Form.Control type="tel" name="phoneNumber" value={phoneNumber} onChange={onPhoneChange} placeholder="Your GSM number in format 0888777666 or +359888777666" minLength="10" maxLength="13" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                <Form.Label>Write here for what this is about</Form.Label>
+                <Form.Control name="textarea" as="textarea" value={textField} onChange={onTextChange} placeholder="Write here" rows={5} />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <Form.Check type="checkbox" name="isChecked" id="I'm not a bot" value="I'm not a bot" onChange={onChecked} checked={isChecked['I\'m not a bot'] || false} label="I'm not a bot" />
+                <Form.Check type="checkbox" name="isChecked" id="My data is currect" value="My data is currect" onChange={onChecked} checked={isChecked['My data is currect'] || false} label="My phone and email are correct" />
+            </Form.Group>
+            <Button variant="primary" type="submit">Submit</Button>
+        </Form>
     );
 }
