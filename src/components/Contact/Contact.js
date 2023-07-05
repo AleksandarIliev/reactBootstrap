@@ -38,18 +38,14 @@ export const Contact = () => {
     const onSubmitHandler = (e) => {
         e.preventDefault();
 
-        // console.log(process.env.REACT_APP_EMAILJS_SERVICE_ID);
-        // console.log(process.env.REACT_APP_EMAILJS_TEMPLATE_ID);
-        // console.log(process.env.REACT_APP_EMAILJS_USER_ID);
+        const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+        const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+        const userId = process.env.REACT_APP_EMAILJS_USER_ID;
 
         if (isChecked['I\'m not a bot'] === true && isChecked['My data is currect'] === true && textField.length > 0) {
             return (
-                emailjs.sendForm(
-                    `${process.env.REACT_APP_EMAILJS_SERVICE_ID}`,
-                    `${process.env.REACT_APP_EMAILJS_TEMPLATE_ID}`,
-                    form.current,
-                    `${process.env.REACT_APP_EMAILJS_USER_ID}`
-                ).then((result) => {
+                emailjs.sendForm(serviceId, templateId, form.current, userId)
+                .then((result) => {
                     console.log(result.text);
                     navigate('./correctSend')
                 }, (error) => {
