@@ -22,6 +22,7 @@ import { AuthContext } from './components/Contexts/AuthContext';
 import { authServiceFactory } from './components/Services/authServices';
 import { useNavigate } from 'react-router-dom';
 import { CorrectSend } from './components/Contact/CorrectSend';
+import { RouteGuard } from './components/RouteGuard/RouteGuard'
 // const baseUrl = 'http://localhost:3030/jsonstore/todos';
 
 function App() {
@@ -107,12 +108,14 @@ function App() {
                         }></Route>
                         <Route path="/about" element={<About />}></Route>
                         <Route path="/product" element={<Product pathname={pathname} />}></Route>
-                        <Route path="/contact" 
-                        serviceId={process.env.REACT_APP_EMAILJS_SERVICE_ID} 
-                        templateId={process.env.REACT_APP_EMAILJS_TEMPLATE_ID}
-                        userssId={process.env.REACT_APP_EMAILJS_USER_ID} 
-                        element={<Contact />}></Route>
-                        <Route path="/contact/correctSend" element={<CorrectSend />}></Route>
+                        <Route element={<RouteGuard />}>
+                            <Route path="/contact"
+                                serviceId={process.env.REACT_APP_EMAILJS_SERVICE_ID}
+                                templateId={process.env.REACT_APP_EMAILJS_TEMPLATE_ID}
+                                userssId={process.env.REACT_APP_EMAILJS_USER_ID}
+                                element={<Contact />}></Route>
+                            <Route path="/contact/correctSend" element={<CorrectSend />}></Route>
+                        </Route>
                         <Route path="/login" element={<Login />}></Route>
                         <Route path="/logout" element={<Logout />}></Route>
                         <Route path="/register" element={<Register />}></Route>
