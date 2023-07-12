@@ -18,12 +18,13 @@ import { Logout } from './components/Logout/Logout';
 import { Routes, Route, useLocation, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 // import { ProductDetails } from './components/Products/ProductDetails';
-import { AuthContext } from './components/Contexts/AuthContext';
-import { authServiceFactory } from './components/Services/authServices';
-import { useNavigate } from 'react-router-dom';
-import { CorrectSend } from './components/Contact/CorrectSend';
+// import { AuthContext } from './components/Contexts/AuthContext';
+// import { authServiceFactory } from './components/Services/authServices';
+// import { useNavigate } from 'react-router-dom';
+import { CorrectSend } from './components/Contact/CorrectSend'; 
 import { RouteGuard } from './components/RouteGuard/RouteGuard'
 // const baseUrl = 'http://localhost:3030/jsonstore/todos';
+import { AuthProvider } from './components/Contexts/AuthContext';
 
 function App() {
     // const [todos, setTodos] = useState([]);
@@ -35,12 +36,14 @@ function App() {
     //         setTodos(Object.values(result));
     //     })
     // }, []);
-    const navigate = useNavigate();
+
+    // const navigate = useNavigate();
+    // const [auth, setAuth] = useState({});
+    // const authService = authServiceFactory(auth.accessToken);
+    
     const [data, setData] = useState([]);
-    const [auth, setAuth] = useState({});
     const location = useLocation();
     const { pathname } = location;
-    const authService = authServiceFactory(auth.accessToken);
 
     useEffect(() => {
         fetch(`http://localhost:3000/productData.json`)
@@ -50,48 +53,8 @@ function App() {
             })
     }, [])
 
-    const onLoginSubmit = async (data) => {
-        try {
-            const result = await authService.login(data);
-            setAuth(result);
-            navigate('/')
-        } catch (error) {
-            console.log('There is a problem with your data. Please try again.');
-        }
-    }
-
-    const onRegisterSubmit = async (values) => {
-        const { rePass, ...registerData } = values;
-        if (rePass !== registerData.password) {
-            return;
-        }
-        try {
-            const result = await authService.register(registerData);
-            setAuth(result);
-            navigate('/allProducts');
-            console.log(result);
-        } catch (error) {
-            console.log('Something went wrong. Please try again later.');
-        }
-    }
-
-    const onLogout = async () => {
-        await authService.logout();
-        setAuth({});
-    }
-
-    const context = {
-        onRegisterSubmit,
-        onLoginSubmit,
-        onLogout,
-        userId: auth._id,
-        token: auth.accessToken,
-        userEmail: auth.email,
-        isAuthenticated: !!auth.accessToken
-    }
-
     return (
-        <AuthContext.Provider value={context}>
+        <AuthProvider>
             <div className="App">
                 <Container fluid="xxl" className={styles['AppStyle']}>
                     <Header />
@@ -155,7 +118,7 @@ function App() {
                     <Footer />
                 </Container>
             </div>
-        </AuthContext.Provider>
+        </AuthProvider>
     );
 }
 
